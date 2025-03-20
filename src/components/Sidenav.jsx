@@ -5,9 +5,11 @@ import logo from "../assets/logotext.png";
 import home from "../assets/homeicon.png";
 import contact from "../assets/contacticon.png";
 import logout from "../assets/logout.png";
+import block from "../assets/logoutdark.png"; // Use the same image as before
 
 const Sidenav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false); // State for logout modal
   const navigate = useNavigate();
   const sidebarRef = useRef(null);
 
@@ -30,29 +32,32 @@ const Sidenav = () => {
     };
   }, [isOpen]);
 
+  // Handle Logout
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    navigate("/");
+    setLogoutModalOpen(false); // Close the modal after logout
+  };
+
   return (
-    <div className="relative">
-      {/* Hamburger Menu Button (Hidden When Sidebar is Open) */}
-      {!isOpen && (
-        <button
-          className="fixed top-4 left-4 md:hidden z-50 bg-[#301820] p-2 rounded-md text-white"
-          onClick={() => setIsOpen(true)}
-        >
-          <Menu size={32} />
-        </button>
-      )}
+    <>
+      {/* Hamburger Menu Button (Fixed at Top-Left on Small Screens) */}
+      <button
+        className="fixed top-4 left-4 md:hidden z-50 bg-[#301820] p-2 rounded-md text-white"
+        onClick={() => setIsOpen(true)}
+      >
+        <Menu size={32} />
+      </button>
 
       {/* Overlay for Sidebar */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 transition-all duration-300 bg-black/50 md:hidden">
+        <div className="fixed inset-0 z-40 bg-black/50 md:hidden">
           {/* Sidebar */}
           <div
             ref={sidebarRef}
-            className={`fixed top-0 left-0 h-full bg-[#301820] w-56 flex flex-col items-center px-4 py-6 transition-transform duration-300 ${
-              isOpen ? "translate-x-0" : "-translate-x-full"
-            } md:translate-x-0 md:w-24`}
+            className="fixed top-0 left-0 h-full bg-[#301820] w-56 flex flex-col items-center px-4 py-6"
           >
-            {/* Close Button (Only One Cross Button Now!) */}
+            {/* Close Button */}
             <button
               className="absolute top-4 right-4 text-white md:hidden"
               onClick={() => setIsOpen(false)}
@@ -90,11 +95,7 @@ const Sidenav = () => {
             {/* Logout Button */}
             <div className="mt-auto mb-8">
               <button
-                onClick={() => {
-                  localStorage.removeItem("isLoggedIn");
-                  navigate("/");
-                  setIsOpen(false);
-                }}
+                onClick={() => setLogoutModalOpen(true)} // Open logout modal
               >
                 <img
                   src={logout}
@@ -133,16 +134,51 @@ const Sidenav = () => {
         {/* Logout Button */}
         <div className="mt-auto mb-8">
           <button
-            onClick={() => {
-              localStorage.removeItem("isLoggedIn");
-              navigate("/");
-            }}
+            onClick={() => setLogoutModalOpen(true)} // Open logout modal
           >
             <img src={logout} alt="Logout" className="cursor-pointer w-12" />
           </button>
         </div>
       </div>
-    </div>
+
+      {/* Logout Confirmation Modal */}
+      {logoutModalOpen && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-80 md:w-96 text-center">
+            {/* Image */}
+            <img
+              src={block}
+              alt="Logout"
+              className="w-16 h-16 mx-auto mb-4 opacity-40" // Added opacity-75
+            />
+
+            {/* Text */}
+            <h2 className="text-xl font-semibold mb-2 text-gray-700">
+              Are you sure to sign out your account?
+            </h2>
+
+            {/* Buttons */}
+            <div className="mt-4 flex flex-col justify-center gap-4">
+              {/* Sign Out Button */}
+              <button
+                className="px-4 py-2 rounded-full font-bold text-white bg-[#301820] hover:bg-[#402030] transition"
+                onClick={handleLogout}
+              >
+                Sign Out
+              </button>
+
+              {/* Cancel Button */}
+              <button
+                className="px-4 py-2 font-bold rounded-md bg-white text-black border border-gray-300 hover:bg-gray-100 transition"
+                onClick={() => setLogoutModalOpen(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

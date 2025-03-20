@@ -37,7 +37,7 @@ const Login = () => {
             {/* Glassy Login Box */}
             <div className="mt-10 p-6 md:p-8 w-full max-w-lg rounded-3xl shadow-lg bg-white/10 backdrop-blur-xl backdrop-saturate-150 border border-white/30">
               {/* text section */}
-              <div className="flex flex-col items-center text-2xl md:text-3xl font-semibold mb-4 text-white">
+              <div className="flex flex-col items-center text-2xl md:text-4xl font-semibold mb-4 text-white">
                 <div>Welcome</div>
                 <div className="text-sm text-gray-200">
                   Sign in with your email
@@ -55,7 +55,7 @@ const Login = () => {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-10 py-2 rounded-lg bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-gray-300 placeholder-white/70"
+                    className="w-full px-10 py-2 rounded-lg bg-white text-gray-400 border border-white/30 focus:outline-none focus:ring-2 focus:ring-gray-300 placeholder-black/70"
                   />
                 </div>
                 <div className="relative">
@@ -67,7 +67,7 @@ const Login = () => {
                   <input
                     type="password"
                     placeholder="Enter your password"
-                    className="w-full px-10 py-2 rounded-lg bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-gray-300 placeholder-white/70"
+                    className="w-full px-10 py-2 rounded-lg bg-white text-gray-400 border border-white/30 focus:outline-none focus:ring-2 focus:ring-gray-300 placeholder-black/70"
                   />
                 </div>
                 <Link to="/dashboard">
