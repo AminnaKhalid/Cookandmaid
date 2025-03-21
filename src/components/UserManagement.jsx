@@ -30,17 +30,17 @@ const UserManagement = () => {
       {/* Sidebar */}
       <Sidenav />
 
-      <div className="flex-1 p-4 md:p-6 flex flex-col">
+      <div className="flex-1 p-4 md:p-0 flex flex-col bg-gray-50">
         {/* Header */}
-        <div className="mb-4">
-          <h1 className="text-xl md:text-2xl font-bold uppercase text-center md:text-left">
+        <div className="mb-4 bg-white border-b-[1px] border-gray-300 py-3">
+          <h1 className="text-xl md:text-2xl font-bold uppercase text-center md:text-left px-4">
             User Management
           </h1>
-          <hr className="border-gray-300 mt-2" />
+          {/* <hr className="border-gray-300 mt-2" /> */}
         </div>
 
         {/* Search & Filter */}
-        <div className="flex flex-col md:flex-row items-center gap-4 mb-6 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-4 mb-6 w-full px-2 py-3 py-0">
           {/* Search Bar - Takes 75% width */}
           <div className="w-full md:w-3/4 relative">
             <input
@@ -91,7 +91,7 @@ const UserManagement = () => {
         <Table />
 
         {/* Pagination */}
-        <nav className="flex flex-col md:flex-row items-center justify-between mt-4 bg-white py-3 gap-4">
+        <nav className="flex flex-col md:flex-row items-center justify-between mt-4 bg-white py-3 gap-4 px-2">
           {/* First Section: Showing Entries */}
           <div className="text-gray-600 text-sm md:text-base">
             Showing <b>{startEntry}</b> to <b>{endEntry}</b> of{" "}

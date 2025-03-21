@@ -60,16 +60,16 @@ const Sidenav = () => {
         {/* Navigation Links */}
         <div className="flex flex-col space-y-6 mt-8">
           <button
-            className="p-3 rounded-full hover:bg-[#b4b189] transition h-20 w-20"
+            className="p-3 rounded-full  h-20 w-20"
             onClick={() => navigate("/Dashboard")}
           >
-            <img src={home} alt="Dashboard" className="w-12" />
+            <img src={home} alt="Dashboard" className="w-15" />
           </button>
           <button
-            className="p-3 rounded-full hover:bg-[#b4b189] transition h-20 w-20"
+            className="p-3 rounded-full   h-20 w-20"
             onClick={() => navigate("/UserManagement")}
           >
-            <img src={contact} alt="User Management" className="w-12" />
+            <img src={contact} alt="User Management" className="w-15" />
           </button>
         </div>
 
