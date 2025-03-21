@@ -97,24 +97,29 @@ const Table = () => {
             className="grid md:grid-cols-6 grid-cols-5 text-center"
             key={item.id}
           >
+            {/* User Column */}
             <div className="border border-gray-300 px-2 py-4 md:font-medium font-normal text-sm md:text-md bg-white md:col-span-2 col-span-1">
               <div className="flex items-center justify-center flex-col md:flex-row">
                 <img src={profilepic} alt="" className="w-10 h-10 mx-4" />
                 <span>{item.name}</span>
               </div>
             </div>
-            <div className="border border-gray-300 md:px-2 py-4 px-1 md:font-medium font-normal bg-white col-span-1 text-sm md:text-md">
-              <div className="flex justify-center items-center">
-                {item.role}
-              </div>
+
+            {/* Role Column */}
+            <div className="border border-gray-300 md:px-2 py-4 px-1 md:font-medium font-normal bg-white col-span-1 text-sm md:text-md flex items-center justify-center">
+              {item.role}
             </div>
-            <div className="border border-gray-300 px-2 py-4 md:font-medium font-normal bg-white col-span-1">
+
+            {/* Rating Column */}
+            <div className="border border-gray-300 px-2 py-4 md:font-medium font-normal bg-white col-span-1 flex items-center justify-center">
               <div className="flex flex-col md:flex-row justify-center items-center text-sm md:text-md">
                 <img src={star} alt="" className="h-5 w-5 mx-2" />
                 <span>{item.rating}</span>
               </div>
             </div>
-            <div className="border border-gray-300 px-2 py-4 md:font-medium font-normal bg-white col-span-2">
+
+            {/* Action Column */}
+            <div className="border border-gray-300 px-2 py-4 md:font-medium font-normal bg-white col-span-2 flex items-center justify-center">
               <button
                 className="md:w-40 md:h-10 h-8 w-20 bg-[#ECDAC6] text-black rounded-2xl"
                 onClick={() => {
