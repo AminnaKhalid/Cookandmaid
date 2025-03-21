@@ -1,6 +1,6 @@
 import React from "react";
 import Sidenav from "./Sidenav";
-import Heading from "./Heading";
+// import Heading from "./Heading";
 import Card from "./Card";
 
 const Dashboard = () => {
@@ -13,7 +13,7 @@ const Dashboard = () => {
         </div>
         {/* Main Content */}
         <div className="w-full">
-          <div className="mb-4 bg-white border-b-[1px] border-gray-300 py-3">
+          <div className="mb-4 bg-white border-b-[1px] border-gray-300 py-5">
             <h1 className="text-xl md:text-2xl font-bold uppercase text-center md:text-left px-4">
               Dashboard
             </h1>

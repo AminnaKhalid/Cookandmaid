@@ -33,7 +33,7 @@ const UserManagement = () => {
       <div className="flex-1 p-4 md:p-0 flex flex-col bg-gray-50">
         {/* Header */}
         <div className="mb-4 bg-white border-b-[1px] border-gray-300 py-3">
-          <h1 className="text-xl md:text-2xl font-bold uppercase text-center md:text-left px-4">
+          <h1 className="text-xl md:text-2xl font-bold uppercase text-end md:text-left px-4">
             User Management
           </h1>
           {/* <hr className="border-gray-300 mt-2" /> */}
